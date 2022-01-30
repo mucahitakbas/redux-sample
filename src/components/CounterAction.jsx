@@ -1,10 +1,18 @@
-import React from 'react';
-import { decremented, incremented } from './stores/counter';
-import { useDispatch } from 'react-redux';
+import React from "react";
+import { decremented, incremented } from "./stores/counter";
+import { useDispatch } from "react-redux";
+import { Button } from "antd";
+
 export default function CounterAction() {
-    const dispatch =useDispatch()
-  return <div>
-      <button onClick={()=>dispatch(incremented())}>Increase</button>
-      <button onClick={()=>dispatch(decremented())}>Decrease</button>
-  </div>
+  const dispatch = useDispatch();
+  return (
+    <div>
+      <Button type="primary" onClick={() => dispatch(incremented())}>
+        Increase
+      </Button>
+      <Button type="primary" onClick={() => dispatch(decremented())}>
+        Decrease
+      </Button>
+    </div>
+  );
 }

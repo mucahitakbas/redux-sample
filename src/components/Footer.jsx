@@ -1,6 +1,6 @@
 import { setLanguage, setDarkMode } from "./stores/main";
 import { useDispatch, useSelector } from "react-redux";
-
+import { Button } from 'antd';
 function Footer() {
   const dispatch = useDispatch();
   const main = useSelector((state) => state.main);
@@ -11,22 +11,22 @@ function Footer() {
   };
   return (
     <div>
-      footer
       <div>
         {languages.map((lang, index) => (
-          <button
+          <Button
             onClick={() => handleLanguage(lang)}
-            className={lang === main.language ? "active" : ""}
+            type={lang === main.language ? "primary" : ""}
             key={index}
           >
             {lang}
-          </button>
+          </Button>
         ))}
       </div>
       <div>
-        <button onClick={() => dispatch(setDarkMode())}>
+        <Button type="primary" onClick={() => dispatch(setDarkMode())}>
           {main.dark ? "Switch Light Mode" : "Switch Dark Mode"}
-        </button>
+        </Button>
+        
       </div>
     </div>
   );
